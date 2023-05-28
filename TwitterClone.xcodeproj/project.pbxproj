@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D52421B72A22669000C30404 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52421B62A22669000C30404 /* TweetTableViewCell.swift */; };
 		D555BAF72A1E50A600954239 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D555BAF62A1E50A600954239 /* AppDelegate.swift */; };
 		D555BAF92A1E50A600954239 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D555BAF82A1E50A600954239 /* SceneDelegate.swift */; };
 		D555BAFB2A1E50A600954239 /* MainTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D555BAFA2A1E50A600954239 /* MainTabbarViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D52421B62A22669000C30404 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		D555BAF32A1E50A600954239 /* TwitterClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D555BAF62A1E50A600954239 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D555BAF82A1E50A600954239 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D52421B52A22665C00C30404 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D52421B62A22669000C30404 /* TweetTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		D555BAEA2A1E50A600954239 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +72,7 @@
 		D555BAF52A1E50A600954239 /* TwitterClone */ = {
 			isa = PBXGroup;
 			children = (
+				D52421B52A22665C00C30404 /* Views */,
 				D555BB0A2A1E570D00954239 /* Controllers */,
 				D555BAF62A1E50A600954239 /* AppDelegate.swift */,
 				D555BAF82A1E50A600954239 /* SceneDelegate.swift */,
@@ -169,6 +180,7 @@
 				D555BAF92A1E50A600954239 /* SceneDelegate.swift in Sources */,
 				D555BB0D2A1E57FB00954239 /* HomeViewController.swift in Sources */,
 				D555BB132A1E58D500954239 /* DirectMessagesViewController.swift in Sources */,
+				D52421B72A22669000C30404 /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

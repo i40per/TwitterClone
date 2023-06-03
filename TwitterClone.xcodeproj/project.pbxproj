@@ -17,6 +17,7 @@
 		D555BB0F2A1E585A00954239 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D555BB0E2A1E585A00954239 /* SearchViewController.swift */; };
 		D555BB112A1E589300954239 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D555BB102A1E589300954239 /* NotificationsViewController.swift */; };
 		D555BB132A1E58D500954239 /* DirectMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D555BB122A1E58D500954239 /* DirectMessagesViewController.swift */; };
+		D57A9C102A2B9679000C41EF /* ProfileTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57A9C0F2A2B9679000C41EF /* ProfileTableViewHeader.swift */; };
 		D5C34E1E2A27B64C0066B884 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C34E1D2A27B64C0066B884 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		D555BB0E2A1E585A00954239 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D555BB102A1E589300954239 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		D555BB122A1E58D500954239 /* DirectMessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectMessagesViewController.swift; sourceTree = "<group>"; };
+		D57A9C0F2A2B9679000C41EF /* ProfileTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewHeader.swift; sourceTree = "<group>"; };
 		D5C34E1D2A27B64C0066B884 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				D52421B62A22669000C30404 /* TweetTableViewCell.swift */,
+				D57A9C0F2A2B9679000C41EF /* ProfileTableViewHeader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				D555BB0D2A1E57FB00954239 /* HomeViewController.swift in Sources */,
 				D5C34E1E2A27B64C0066B884 /* ProfileViewController.swift in Sources */,
 				D555BB132A1E58D500954239 /* DirectMessagesViewController.swift in Sources */,
+				D57A9C102A2B9679000C41EF /* ProfileTableViewHeader.swift in Sources */,
 				D52421B72A22669000C30404 /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

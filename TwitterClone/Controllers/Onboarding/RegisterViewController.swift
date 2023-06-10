@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import Combine
 
 class RegisterViewController: UIViewController {
+    
+    private var viewModel = RegisterViewViewModel()
+    private var subscriptions: Set<AnyCancellable> = []
     
     private let registrTitleLabel: UILabel = {
         let label = UILabel()
@@ -47,9 +51,38 @@ class RegisterViewController: UIViewController {
         button.layer.masksToBounds = true
         button.tintColor = .white
         button.layer.cornerRadius = 25
+        button.isEnabled = false
         button.translatesAutoresizingMaskIntoConstraints = false
        return button
     }()
+    
+    @objc private func didChangeEmailField() {
+        viewModel.email = emailTextField.text
+        viewModel.validateRegistrationForm()
+    }
+    
+    @objc private func didChangePasswordField() {
+        viewModel.password = passwordTextField.text
+        viewModel.validateRegistrationForm()
+    }
+    
+    private func bindViews() {
+        emailTextField.addTarget(self, action: #selector(didChangeEmailField), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(didChangePasswordField), for: .editingChanged)
+        viewModel.$isRegistrationFormValid.sink { [weak self] validationState in
+            self?.registerButton.isEnabled = validationState
+        }
+        .store(in: &subscriptions)
+        
+        viewModel.$user.sink { [weak self] user in
+            print(user)
+        }
+        .store(in: &subscriptions)
+    }
+    
+    @objc private func didTapToDismiss() {
+        view.endEditing(true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,8 +91,15 @@ class RegisterViewController: UIViewController {
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
         view.addSubview(registerButton)
+        registerButton.addTarget(self, action: #selector(didTapRegister), for: .touchUpInside)
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapToDismiss)))
         
         configureConstraints()
+        bindViews()
+    }
+    
+    @objc private func didTapRegister() {
+        viewModel.createUser()
     }
     
     private func configureConstraints() {

@@ -18,6 +18,7 @@
 		D555BB112A1E589300954239 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D555BB102A1E589300954239 /* NotificationsViewController.swift */; };
 		D555BB132A1E58D500954239 /* DirectMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D555BB122A1E58D500954239 /* DirectMessagesViewController.swift */; };
 		D57A9C102A2B9679000C41EF /* ProfileTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57A9C0F2A2B9679000C41EF /* ProfileTableViewHeader.swift */; };
+		D593C41C2A35B30F00782F9E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D593C41B2A35B30F00782F9E /* LoginViewController.swift */; };
 		D5A38B3D2A2F46B700592A76 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5A38B3C2A2F46B700592A76 /* GoogleService-Info.plist */; };
 		D5A38B402A2F492800592A76 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D5A38B3F2A2F492800592A76 /* FirebaseAuth */; };
 		D5A38B422A2F492800592A76 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = D5A38B412A2F492800592A76 /* FirebaseAuthCombine-Community */; };
@@ -31,7 +32,7 @@
 		D5A38B532A2F4CB200592A76 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A38B522A2F4CB200592A76 /* OnboardingViewController.swift */; };
 		D5A38B552A2F75D800592A76 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A38B542A2F75D800592A76 /* RegisterViewController.swift */; };
 		D5C34E1E2A27B64C0066B884 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C34E1D2A27B64C0066B884 /* ProfileViewController.swift */; };
-		D5E1B00D2A3226AA00FF6A19 /* RegisterViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E1B00C2A3226AA00FF6A19 /* RegisterViewViewModel.swift */; };
+		D5E1B00D2A3226AA00FF6A19 /* AuthentificationViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E1B00C2A3226AA00FF6A19 /* AuthentificationViewViewModel.swift */; };
 		D5E1B0102A32350300FF6A19 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E1B00F2A32350300FF6A19 /* AuthManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,11 +50,12 @@
 		D555BB102A1E589300954239 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		D555BB122A1E58D500954239 /* DirectMessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectMessagesViewController.swift; sourceTree = "<group>"; };
 		D57A9C0F2A2B9679000C41EF /* ProfileTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewHeader.swift; sourceTree = "<group>"; };
+		D593C41B2A35B30F00782F9E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D5A38B3C2A2F46B700592A76 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D5A38B522A2F4CB200592A76 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		D5A38B542A2F75D800592A76 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		D5C34E1D2A27B64C0066B884 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		D5E1B00C2A3226AA00FF6A19 /* RegisterViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewViewModel.swift; sourceTree = "<group>"; };
+		D5E1B00C2A3226AA00FF6A19 /* AuthentificationViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationViewViewModel.swift; sourceTree = "<group>"; };
 		D5E1B00F2A32350300FF6A19 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +148,7 @@
 			children = (
 				D5A38B522A2F4CB200592A76 /* OnboardingViewController.swift */,
 				D5A38B542A2F75D800592A76 /* RegisterViewController.swift */,
+				D593C41B2A35B30F00782F9E /* LoginViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -161,7 +164,7 @@
 		D5E1B00B2A32265900FF6A19 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				D5E1B00C2A3226AA00FF6A19 /* RegisterViewViewModel.swift */,
+				D5E1B00C2A3226AA00FF6A19 /* AuthentificationViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -262,12 +265,13 @@
 				D555BB0F2A1E585A00954239 /* SearchViewController.swift in Sources */,
 				D5E1B0102A32350300FF6A19 /* AuthManager.swift in Sources */,
 				D555BAFB2A1E50A600954239 /* MainTabbarViewController.swift in Sources */,
+				D593C41C2A35B30F00782F9E /* LoginViewController.swift in Sources */,
 				D555BAF72A1E50A600954239 /* AppDelegate.swift in Sources */,
 				D5A38B552A2F75D800592A76 /* RegisterViewController.swift in Sources */,
 				D555BB112A1E589300954239 /* NotificationsViewController.swift in Sources */,
 				D555BAF92A1E50A600954239 /* SceneDelegate.swift in Sources */,
 				D555BB0D2A1E57FB00954239 /* HomeViewController.swift in Sources */,
-				D5E1B00D2A3226AA00FF6A19 /* RegisterViewViewModel.swift in Sources */,
+				D5E1B00D2A3226AA00FF6A19 /* AuthentificationViewViewModel.swift in Sources */,
 				D5C34E1E2A27B64C0066B884 /* ProfileViewController.swift in Sources */,
 				D555BB132A1E58D500954239 /* DirectMessagesViewController.swift in Sources */,
 				D57A9C102A2B9679000C41EF /* ProfileTableViewHeader.swift in Sources */,

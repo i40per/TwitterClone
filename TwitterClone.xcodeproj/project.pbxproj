@@ -39,6 +39,7 @@
 		D5C34E1E2A27B64C0066B884 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C34E1D2A27B64C0066B884 /* ProfileViewController.swift */; };
 		D5E1B00D2A3226AA00FF6A19 /* AuthentificationViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E1B00C2A3226AA00FF6A19 /* AuthentificationViewViewModel.swift */; };
 		D5E1B0102A32350300FF6A19 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E1B00F2A32350300FF6A19 /* AuthManager.swift */; };
+		D5F1B1132A3F39D800929976 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F1B1122A3F39D800929976 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		D5C34E1D2A27B64C0066B884 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D5E1B00C2A3226AA00FF6A19 /* AuthentificationViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationViewViewModel.swift; sourceTree = "<group>"; };
 		D5E1B00F2A32350300FF6A19 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		D5F1B1122A3F39D800929976 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 			children = (
 				D5E1B00F2A32350300FF6A19 /* AuthManager.swift */,
 				D52B8C432A375DC700B9FC3D /* DatabaseManager.swift */,
+				D5F1B1122A3F39D800929976 /* StorageManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				D555BB0F2A1E585A00954239 /* SearchViewController.swift in Sources */,
 				D5E1B0102A32350300FF6A19 /* AuthManager.swift in Sources */,
 				D555BAFB2A1E50A600954239 /* MainTabbarViewController.swift in Sources */,
+				D5F1B1132A3F39D800929976 /* StorageManager.swift in Sources */,
 				D593C41C2A35B30F00782F9E /* LoginViewController.swift in Sources */,
 				D52B8C442A375DC700B9FC3D /* DatabaseManager.swift in Sources */,
 				D555BAF72A1E50A600954239 /* AppDelegate.swift in Sources */,

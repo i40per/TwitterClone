@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import Combine
+import SDWebImage
 
 class ProfileViewController: UIViewController {
     
+    private var subscriptions: Set<AnyCancellable> = []
     private var isStatusBarHidden: Bool = true
+    private var viewModel = ProfileViewViewModel()
     
     private let statusBar: UIView = {
         let view = UIView()
@@ -18,6 +22,8 @@ class ProfileViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
        return view
     }()
+    
+    private lazy var headerView = ProfileTableViewHeader(frame: CGRect(x: 0, y: 0, width: profileTableView.frame.width, height: 380))
     
     private let profileTableView: UITableView = {
         let tableView = UITableView()
@@ -33,14 +39,31 @@ class ProfileViewController: UIViewController {
         view.addSubview(profileTableView)
         view.addSubview(statusBar)
         
-        let headerView = ProfileTableViewHeader(frame: CGRect(x: 0, y: 0, width: profileTableView.frame.width, height: 380))
-        
         profileTableView.delegate = self
         profileTableView.dataSource = self
         profileTableView.tableHeaderView = headerView
         profileTableView.contentInsetAdjustmentBehavior = .never
         navigationController?.navigationBar.isHidden = true
         configureConstraints()
+        binsViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.retreiveUser()
+    }
+    
+    private func binsViews() {
+        viewModel.$user.sink { [weak self] user in
+            guard let user = user else { return }
+            self?.headerView.displayNameLabel.text = user.displayName
+            self?.headerView.usernameLabel.text = "@\(user.userName)"
+            self?.headerView.followersCountLabel.text = "\(user.followersCount)"
+            self?.headerView.followingCountLabel.text = "\(user.followingCount)"
+            self?.headerView.userBioLabel.text = user.bio
+            self?.headerView.profileAvatarImageView.sd_setImage(with: URL(string: user.avatarPath))
+        }
+        .store(in: &subscriptions)
     }
     
     private func configureConstraints() {

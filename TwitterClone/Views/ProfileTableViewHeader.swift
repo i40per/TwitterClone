@@ -82,9 +82,8 @@ class ProfileTableViewHeader: UIView {
        return label
     }()
     
-    private let followersCountLabel: UILabel = {
+    var followersCountLabel: UILabel = {
         let label = UILabel()
-        label.text = "1M"
         label.textColor = .label
         label.font = .systemFont(ofSize: 14, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -100,16 +99,15 @@ class ProfileTableViewHeader: UIView {
        return label
     }()
     
-    private let followingCountLabel: UILabel = {
+    var followingCountLabel: UILabel = {
         let label = UILabel()
-        label.text = "314"
         label.textColor = .label
         label.font = .systemFont(ofSize: 14, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
        return label
     }()
     
-    private let joinDateLabel: UILabel = {
+    var joinDateLabel: UILabel = {
         let label = UILabel()
         label.text = "Joined May 2021"
         label.textColor = .secondaryLabel
@@ -126,40 +124,36 @@ class ProfileTableViewHeader: UIView {
        return imageView
     }()
     
-    private let userBioLabel: UILabel = {
+    var userBioLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 3
         label.textColor = .label
-        label.text = "IOS Developer"
         label.translatesAutoresizingMaskIntoConstraints = false
        return label
     }()
     
-    private let usernameLabel: UILabel = {
+    var usernameLabel: UILabel = {
         let label = UILabel()
-        label.text = "@amrhossam96"
         label.textColor = .secondaryLabel
         label.font = .systemFont(ofSize: 18, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let displayNameLabel: UILabel = {
+    var displayNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Amr"
         label.font = .systemFont(ofSize: 22, weight: .bold)
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let profileAvatarImageView: UIImageView = {
+    var profileAvatarImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 40
-        imageView.image = UIImage(systemName: "person")
-        imageView.backgroundColor = .yellow
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

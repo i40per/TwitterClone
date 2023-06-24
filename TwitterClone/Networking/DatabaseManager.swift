@@ -29,4 +29,10 @@ class DatabaseManager {
             .tryMap { try $0.data(as: TwitterUser.self) }
             .eraseToAnyPublisher()
     }
+    
+    func collectionUsers(updateFilds: [String: Any], for id: String) -> AnyPublisher<Bool, Error> {
+        db.collection(usersPath).document(id).updateData(updateFilds)
+            .map { _ in true }
+            .eraseToAnyPublisher()
+    }
 }

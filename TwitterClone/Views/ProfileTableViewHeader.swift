@@ -34,7 +34,7 @@ class ProfileTableViewHeader: UIView {
     
     private let indicator: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(red: 29/255, green: 161/255, blue: 242/255, alpha: 1)
+        view.backgroundColor = .twitterBlueCollor
         view.translatesAutoresizingMaskIntoConstraints = false
        return view
     }()
@@ -107,9 +107,8 @@ class ProfileTableViewHeader: UIView {
        return label
     }()
     
-    var joinDateLabel: UILabel = {
+    var joinedDateLabel: UILabel = {
         let label = UILabel()
-        label.text = "Joined May 2021"
         label.textColor = .secondaryLabel
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -175,7 +174,7 @@ class ProfileTableViewHeader: UIView {
         addSubview(usernameLabel)
         addSubview(userBioLabel)
         addSubview(joinDateImageView)
-        addSubview(joinDateLabel)
+        addSubview(joinedDateLabel)
         addSubview(followingCountLabel)
         addSubview(followingTextLabel)
         addSubview(followersCountLabel)
@@ -265,13 +264,13 @@ class ProfileTableViewHeader: UIView {
         ]
         
         let joinDateLabelConstraints = [
-            joinDateLabel.leadingAnchor.constraint(equalTo: joinDateImageView.trailingAnchor, constant: 2),
-            joinDateLabel.bottomAnchor.constraint(equalTo: joinDateImageView.bottomAnchor)
+            joinedDateLabel.leadingAnchor.constraint(equalTo: joinDateImageView.trailingAnchor, constant: 2),
+            joinedDateLabel.bottomAnchor.constraint(equalTo: joinDateImageView.bottomAnchor)
         ]
         
         let followingCountLabelConstraints = [
             followingCountLabel.leadingAnchor.constraint(equalTo: displayNameLabel.leadingAnchor),
-            followingCountLabel.topAnchor.constraint(equalTo: joinDateLabel.bottomAnchor, constant: 10)
+            followingCountLabel.topAnchor.constraint(equalTo: joinedDateLabel.bottomAnchor, constant: 10)
         ]
         
         let followingTextLabelConstraints = [

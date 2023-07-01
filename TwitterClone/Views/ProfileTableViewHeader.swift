@@ -166,6 +166,7 @@ class ProfileTableViewHeader: UIView {
         return imageView
     }()
     
+    //MARK: - init
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(profileHeaderImageView)
@@ -181,6 +182,7 @@ class ProfileTableViewHeader: UIView {
         addSubview(followersTextLabel)
         addSubview(sectionStack)
         addSubview(indicator)
+        
         configureConstraints()
         configureStackButton()
     }
@@ -219,8 +221,8 @@ class ProfileTableViewHeader: UIView {
         fatalError()
     }
     
+    //MARK: - configureConstraints
     private func configureConstraints() {
-        
         for i in 0..<tabs.count {
             let leadingAnchor = indicator.leadingAnchor.constraint(equalTo: sectionStack.arrangedSubviews[i].leadingAnchor)
             leadingAnchors.append(leadingAnchor)

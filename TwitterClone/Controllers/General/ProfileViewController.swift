@@ -20,18 +20,20 @@ class ProfileViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.layer.opacity = 0
         view.translatesAutoresizingMaskIntoConstraints = false
-       return view
+        return view
     }()
     
     private lazy var headerView = ProfileTableViewHeader(frame: CGRect(x: 0, y: 0, width: profileTableView.frame.width, height: 380))
     
     private let profileTableView: UITableView = {
         let tableView = UITableView()
+        tableView.allowsSelection = false
         tableView.register(TweetTableViewCell.self, forCellReuseIdentifier: TweetTableViewCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
-
+    
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -44,15 +46,18 @@ class ProfileViewController: UIViewController {
         profileTableView.tableHeaderView = headerView
         profileTableView.contentInsetAdjustmentBehavior = .never
         navigationController?.navigationBar.isHidden = true
+        
         configureConstraints()
         binsViews()
     }
     
+    //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.retreiveUser()
     }
     
+    //MARK: - binsViews
     private func binsViews() {
         viewModel.$user.sink { [weak self] user in
             guard let user = user else { return }
@@ -65,14 +70,22 @@ class ProfileViewController: UIViewController {
             self?.headerView.joinedDateLabel.text = "Joined \(self?.viewModel.getFormattedDate(with: user.createdOn) ?? "")"
         }
         .store(in: &subscriptions)
+        
+        viewModel.$tweets.sink { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.profileTableView.reloadData()
+            }
+        }
+        .store(in: &subscriptions)
     }
     
+    //MARK: - configureConstraints
     private func configureConstraints() {
         let profileTableViewConstraints = [
             profileTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             profileTableView.topAnchor.constraint(equalTo: view.topAnchor),
             profileTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            profileTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            profileTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ]
         
         let statusBarConstraints = [
@@ -87,16 +100,21 @@ class ProfileViewController: UIViewController {
     }
 }
 
+//MARK: - UITableViewDelegate, UITableViewDataSource
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return viewModel.tweets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TweetTableViewCell.identifier, for: indexPath) as? TweetTableViewCell else {
             return UITableViewCell()
         }
-        
+        let tweetModel = viewModel.tweets[indexPath.row]
+        cell.configureTweet(with: tweetModel.author.displayName,
+                            username: tweetModel.author.userName,
+                            tweetTextContent: tweetModel.tweetContent,
+                            avatarPath: tweetModel.author.avatarPath)
         return cell
     }
     

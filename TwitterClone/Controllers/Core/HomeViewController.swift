@@ -49,6 +49,7 @@ class HomeViewController: UIViewController {
     
     private let timelineTableView: UITableView = {
         let tableView = UITableView()
+        tableView.allowsSelection = false
         tableView.register(TweetTableViewCell.self,
                            forCellReuseIdentifier: TweetTableViewCell.identifier)
         return tableView
@@ -61,9 +62,10 @@ class HomeViewController: UIViewController {
         view.addSubview(composeTweetButton)
         timelineTableView.delegate = self
         timelineTableView.dataSource = self
-        configureNavigationBar()
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "rectangle.portrait.and.arrow.right"), style: .plain, target: self, action: #selector(didTapSignOut))
+        
         bindViews()
+        configureNavigationBar()
     }
     
     @objc private func didTapSignOut() {
@@ -92,6 +94,7 @@ class HomeViewController: UIViewController {
         present(vc, animated: false)
     }
     
+    //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
@@ -104,6 +107,7 @@ class HomeViewController: UIViewController {
         present(vc, animated: true)
     }
     
+    //MARK: - bindViews
     func bindViews() {
         viewModel.$user.sink { [weak self] user in
             guard let user = user else { return }
@@ -112,8 +116,16 @@ class HomeViewController: UIViewController {
             }
         }
         .store(in: &subscriptions)
+        
+        viewModel.$tweets.sink { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.timelineTableView.reloadData()
+            }
+        }
+        .store(in: &subscriptions)
     }
     
+    //MARK: - configureConstraints
     private func configureConstraints() {
         let composeTweetButtonConstraints = [
             composeTweetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
@@ -129,13 +141,18 @@ class HomeViewController: UIViewController {
 //MARK: - UITableViewDelegate, UITableViewDataSource
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.tweets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TweetTableViewCell.identifier, for: indexPath) as? TweetTableViewCell else {
             return UITableViewCell()
         }
+        let tweetModel = viewModel.tweets[indexPath.row]
+        cell.configureTweet(with: tweetModel.author.displayName,
+                            username: tweetModel.author.userName,
+                            tweetTextContent: tweetModel.tweetContent,
+                            avatarPath: tweetModel.author.avatarPath)
         cell.delegate = self
         return cell
     }

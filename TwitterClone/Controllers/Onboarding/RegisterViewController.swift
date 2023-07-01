@@ -66,6 +66,7 @@ class RegisterViewController: UIViewController {
         viewModel.validateAuthentificationForm()
     }
     
+    //MARK: - bindViews
     private func bindViews() {
         emailTextField.addTarget(self, action: #selector(didChangeEmailField), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(didChangePasswordField), for: .editingChanged)
@@ -98,7 +99,8 @@ class RegisterViewController: UIViewController {
     @objc private func didTapToDismiss() {
         view.endEditing(true)
     }
-
+    
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -117,6 +119,7 @@ class RegisterViewController: UIViewController {
         viewModel.createUser()
     }
     
+    //MARK: - configureConstraints
     private func configureConstraints() {
         let registrTitleLabelConstraints = [
             registrTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),

@@ -94,7 +94,8 @@ class ProfileDataFormViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
        return button
     }()
-
+    
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -131,6 +132,7 @@ class ProfileDataFormViewController: UIViewController {
         viewModel.validateUserProfileForm()
     }
     
+    //MARK: - bindViews
     private func bindViews() {
         displayNameTextField.addTarget(self, action: #selector(didUpdateDisplayName), for: .editingChanged)
         usernameTextField.addTarget(self, action: #selector(didUpdateUsername), for: .editingChanged)
@@ -161,6 +163,7 @@ class ProfileDataFormViewController: UIViewController {
         view.endEditing(true)
     }
     
+    //MARK: - configureConstraints
     private func configureConstraints() {
         let scrollViewConstraints = [
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -219,6 +222,7 @@ class ProfileDataFormViewController: UIViewController {
     }
 }
 
+//MARK: - UITextViewDelegate, UITextFieldDelegate
 extension ProfileDataFormViewController: UITextViewDelegate, UITextFieldDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         scrollView.setContentOffset(CGPoint(x: 0, y: textView.frame.origin.y - 100), animated: true)
@@ -250,6 +254,7 @@ extension ProfileDataFormViewController: UITextViewDelegate, UITextFieldDelegate
     }
 }
 
+//MARK: - PHPickerViewControllerDelegate
 extension ProfileDataFormViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true)

@@ -38,7 +38,7 @@ final class TweetComposeViewViewModel: ObservableObject {
     
     func dispatchTweet() {
         guard let user = user else { return }
-        let tweet = Tweet(author: user, tweetContent: tweetContent, likesCount: 0, likers: [],
+        let tweet = Tweet(author: user, authorID: user.id, tweetContent: tweetContent, likesCount: 0, likers: [],
                           isReply: false, parentReference: nil)
         DatabaseManager.shared.collectonTweets(dispatch: tweet)
             .sink { [weak self] completion in
@@ -49,6 +49,5 @@ final class TweetComposeViewViewModel: ObservableObject {
                 self?.shouldDismissComposer = state
             }
             .store(in: &subscriptions)
-
     }
 }

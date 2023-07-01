@@ -66,6 +66,7 @@ class LoginViewController: UIViewController {
         viewModel.validateAuthentificationForm()
     }
     
+    //MARK: - bindViews
     private func bindViews() {
         emailTextField.addTarget(self, action: #selector(didChangeEmailField), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(didChangePasswordField), for: .editingChanged)
@@ -95,6 +96,7 @@ class LoginViewController: UIViewController {
         present(alert, animated: true)
     }
     
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -112,6 +114,7 @@ class LoginViewController: UIViewController {
         viewModel.loginUser()
     }
     
+    //MARK: - configureConstraints
     private func configureConstraints() {
         let loginTitleLabelConstraints = [
             loginTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),

@@ -38,7 +38,8 @@ class TweetComposeViewController: UIViewController {
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
-
+    
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -57,6 +58,7 @@ class TweetComposeViewController: UIViewController {
         viewModel.dispatchTweet()
     }
     
+    //MARK: - bindViews
     private func bindViews() {
         viewModel.$isValidToTweet.sink { [weak self] state in
             self?.tweetButton.isEnabled = state
@@ -71,6 +73,7 @@ class TweetComposeViewController: UIViewController {
         .store(in: &subscriptions)
     }
     
+    //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.getUserData()
@@ -80,6 +83,7 @@ class TweetComposeViewController: UIViewController {
         dismiss(animated: true)
     }
     
+    //MARK: - configureConstraints
     private func configureConstraints() {
         let tweetButtonConstraints = [
             tweetButton.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor, constant: -10),
@@ -100,6 +104,7 @@ class TweetComposeViewController: UIViewController {
     }
 }
 
+//MARK: - UITextViewDelegate
 extension TweetComposeViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == .gray {

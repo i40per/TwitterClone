@@ -8,7 +8,8 @@
 import UIKit
 
 class MainTabbarViewController: UITabBarController {
-
+    
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground

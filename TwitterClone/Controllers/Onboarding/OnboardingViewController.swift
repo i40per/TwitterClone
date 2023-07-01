@@ -49,7 +49,8 @@ class OnboardingViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
        return button
     }()
-
+    
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -74,6 +75,7 @@ class OnboardingViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    //MARK: - configureConstraints
     private func configureConstraints() {
         let welcomeLabelConstraimts = [
             welcomeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),

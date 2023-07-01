@@ -9,8 +9,8 @@ import UIKit
 
 class DirectMessagesViewController: UIViewController {
 
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 }
